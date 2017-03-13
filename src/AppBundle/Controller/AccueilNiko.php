@@ -11,7 +11,7 @@ class AccueilNiko extends Controller{
      */
     public function accueilNiko()
     {
-		return $this->render('cvNiko.html.twig', array(
+		return $this->render('cv.html.twig', array(
 					'number' => 0,
 				));
     }
