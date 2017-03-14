@@ -1,0 +1,92 @@
+{
+	"titre" : "Chef de projet web",
+	"contact": {
+	"nom" : "Moulet",
+	"prenom" : "Moulet",
+    "rue": "5 rue Louise Weiss",
+    "complement": "Résidence Néapolis - Appt A302",
+    "cp": "31200",
+    "ville": "Toulouse",
+    "tel" : "06-70-28-21-87",
+    "mail" : "moulet.marion@yahoo.com",
+    "age" : "29"
+	},"sections" : [
+		{
+			"id" : 1,
+			"libelle" : "Parcours professionnel",
+		},
+		{
+			"id" : 2,
+			"libelle" : "Parcours de formation",
+		},
+		{
+			"id" : 3,
+			"libelle" : "Compétences linguistiques et informatiques",
+		},
+		{
+			"id" : 4,
+			"libelle" : "Informations complémentaires",
+		},
+	],"experiences": [
+		{
+			"id" : 1,
+			"periode": "Juin 2014 à aujourd’hui",
+			"poste": "Auto-entrepreneur Chef de projet web"
+		},{
+			"id" : 2,
+			"periode": "Avril 2013 - sept. 2014",
+			"poste": "Chef de projet web",
+			"missions" : [
+				"<strong>" + 
+					"Gestion et suivi d’un portefeuille de <em>55 clients</em>" + 
+				"</strong>",
+				"Analyse des besoins du client et <em>rédaction du cahier des charges</em>",
+				"<em>Coordination</em> du travail de tous les <em>prestataires</em>: graphistes, développeurs,etc. " + 
+				"et <em>supervision</em> du déroulement du projet"
+			]
+		}
+	],
+	"formations" : [
+		{
+			"id" : 1,
+			"debut" : "2005",
+			"fin" : "2006",
+			"libelle" : "Baccalauréat Série Economique et social (Mention AB)",
+			"lieu" : "Lycée St Dominique, St Herblain (44)"
+		},{
+		    "id" : 2,
+			"debut" : "2006",
+			"fin" : "2010",
+			"libelle" : "Licence Langues Etrangères Appliquées, parcours Commerce International (Mention AB)"
+			"lieu" : "Université Rennes 2 Haute Bretagne (35)"
+		}
+	], "langues" : [
+		{
+		    "id" : 1,
+			"libelle" : "Anglais",
+			"note" : 4,
+			"precisions" : "TOEIC (890/990)"
+		},{
+		    "id" : 2,
+			"libelle" : "Espagnol",
+			"note" : 4,
+			"precisions" : "16 mois en Amérique du Sud"
+		},{
+		    "id" : 3,
+			"libelle" : "Italien",
+			"note" : 2,
+			"precisions" : "Notions"
+		}
+	], "info" : [
+		{
+		    "id" : 1,
+		    "libelle" : "Word",
+		    "urlImg" : "./word.png"
+		},
+		{
+		    "id" : 2,
+		    "libelle" : "Excel",
+		    "urlImg" : "./excel.png"
+		}
+	]
+}

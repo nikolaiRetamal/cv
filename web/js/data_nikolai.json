@@ -1,0 +1,82 @@
+{
+	"titre" : "Ingénieur Backend",
+	"photo" : "./img/niko.jpg",
+	"contact": {
+	"nom" : "Retamal",
+	"prenom" : "Nikolaï",
+    "rue": "5 rue Louise Weiss",
+    "complement": "Résidence Néapolis - Appt A302",
+    "cp": "31200",
+    "ville": "Toulouse",
+    "tel" : "06-71-64-86-14",
+    "mail" : "nikolai.retamal@yahoo.fr",
+    "age" : "30"
+	},"experiences": [
+		{
+			"id" : 1,
+			"entite" : "Service des concours",
+			"periode": "Septembre 2013 à aujourd’hui",
+			"poste": "Développeur web",
+			"description" : "Du beau boulot avec de l'informatique et du café",
+			"missions" : [
+				"<strong>Gestion et suivi d’un portefeuille de <em>55 clients</em></strong>",
+				"Analyse des besoins du client et <em>rédaction du cahier des charges</em>",
+				"<em>Coordination</em> du travail de tous les <em>prestataires</em>: graphistes, développeurs,etc. et <em>supervision</em> du déroulement du projet"
+			]
+		},{
+			"id" : 2,
+			"entite" : "Service des concours",
+			"periode": "Septembre 2013 à aujourd’hui",
+			"poste": "Développeur web",
+			"description" : "Du beau boulot avec de l'informatique et du café",
+			"missions" : [
+				"<strong>Gestion et suivi d’un portefeuille de <em>55 clients</em></strong>",
+				"Analyse des besoins du client et <em>rédaction du cahier des charges</em>",
+				"<em>Coordination</em> du travail de tous les <em>prestataires</em>: graphistes, développeurs,etc. et <em>supervision</em> du déroulement du projet"
+			]
+		}
+	],
+	"formations" : [
+		{
+		    "id" : 1,
+			"diplome" : "Licence",
+			"periode" : "2006 - 2010",
+			"description" : "Licence Langues Etrangères Appliquées, parcours Commerce International (Mention AB)",
+			"lieu" : "Université Rennes 2 Haute Bretagne (35)"
+		},{
+			"id" : 2,
+			"diplome" : "Bac",
+			"periode" : "2005",
+			"description" : "Baccalauréat Série Economique et social (Mention AB)",
+			"lieu" : "Lycée St Dominique, St Herblain (44)"
+		}
+	], "langues" : [
+		{
+		    "id" : 1,
+			"libelle" : "Anglais",
+			"note" : 4,
+			"precisions" : "TOEIC (890/990)"
+		},{
+		    "id" : 2,
+			"libelle" : "Espagnol",
+			"note" : 4,
+			"precisions" : "16 mois en Amérique du Sud"
+		},{
+		    "id" : 3,
+			"libelle" : "Italien",
+			"note" : 2,
+			"precisions" : "Notions"
+		}
+	], "it" : [
+		{
+		    "id" : 1,
+		    "libelle" : "Word",
+		    "urlImg" : "./word.png"
+		},
+		{
+		    "id" : 2,
+		    "libelle" : "Excel",
+		    "urlImg" : "./excel.png"
+		}
+	]
+}
