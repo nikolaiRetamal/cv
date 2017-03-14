@@ -7,51 +7,80 @@
     <link href="{{ asset('css/test.css') }}" rel="stylesheet">
 {% endblock %}
 {% block body %}
-        <header>
-            <h1>Zozor</h1>
-            <h2>Carnets de voyage</h2>
-        </header>
-        <div class="ligne">
-			<nav>
-				<ul>
-					<li><a href="#">Accueil</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">CV</a></li>
-				</ul>
-			</nav>
-			
-			<section>
-				<aside>
-					<h1>À propos de l'auteur</h1>
-					<p>C'est moi, Zozor ! Je suis né un 23 novembre 2005.</p>
-				</aside>
-				<article>                
-					<h1>Je suis un grand voyageur</h1>
-					<p>Bla bla bla bla (texte de l'article)</p>
-				</article>
-			</section>
-		</div>
-		<div class="ligne">
-			<nav>
-				<ul>
-					<li><a href="#">Accueil</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">CV</a></li>
-				</ul>
-			</nav>
-			<section>
-				<aside>
-					<h1>À propos de l'auteur</h1>
-					<p>C'est moi, Zozor ! Je suis né un 23 novembre 2005.</p>
-				</aside>
-				<article>                
-					<h1>Je suis un grand voyageur</h1>
-					<p>Bla bla bla bla (texte de l'article)</p>
-				</article>
-			</section>
-		</div>
+        <nav>
+			<ul>
+				<li><a href="#quiSuisJe">Qui suis-je</a></li>
+				<li><a href="#experiences">Mes exp&eacute;riences</a></li>
+				<li><a href="#competences">Mes comp&eacute;tences</a></li>
+				<li><a href="#interets">Mes points d'int&eacute;r&ecirc;ts</a></li>
+				<li><a href="#contact">Me contacter</a></li>
+			</ul>
+		</nav>
+		<section id="quiSuisJe">
+			<article id="aPropos">
+				<h1>{{ info.titre }}</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+				ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+				laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
+				velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+				sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+			</article>
+			<img id="portrait" src="./img/marion.png" alt="portrait Marion">
+			<article id="detail">
+				<h1>D&eacute;tails</h1>
+				<h2>{{ info.contact.prenom }} {{ info.contact.nom }}</h2>
+				<label>Age</label><br>
+				<span>{{ info.contact.age }}</span><br>
+				<label>Mail</label><br>
+				<span>{{ info.contact.mail }}</span><br>
+				<label>Lieu de résidence</label><br>
+				<span>{{ info.contact.ville }}</span>
+			</article>
+		</section>
+		<section id="experiences">
+			<img id="fleche" src="./img/fleche" alt="fl&egrave;che sens chronologique">
+			<div class="container-experiences">
+				<h1>Exp&eacute;riences</h1>
+				{% for experience in info.experiences %}    
+					<div class="entite">
+						<h2>{{ experience.entite }}</h2>
+						<span class="periode">{{ experience.periode }}<span>
+					</div>
+					<article class="description">
+						<h2>{{ experience.poste }}</h2>
+						<p>{{ experience.description }}</p>
+						<span class="voirDetail">
+							Voir mes missions 
+							<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+						</span>
+						<ul>
+							{% for mission in experience.missions %}
+								<li>{{ mission | raw }}</li>
+							{% endfor %}
+						</ul>
+					</article>
+				{% endfor %}
+			</div>
+			<div class="container-formations">
+				<h1>Formations</h1>
+				{% for formation in info.formations %}    
+					<div class="diplome">
+						<h2>{{ formation.diplome }}</h2>
+						<span class="periode">{{ formation.periode }}<span>
+					</div>
+					<article class="description">
+						<h2>{{ formation.lieu }}</h2>
+						<p>{{ formation.description }}</p>
+					</article>
+				{% endfor %}
+			</div>
+		</section>
+		<section id="competences">
+		</section>
+		<section id="interets">
+		</section>
+		<section id="contact">
+		</section>
         <footer>
-            <p>Copyright Zozor - Tous droits réservés<br />
-            <a href="#">Me contacter !</a></p>
         </footer>
 {% endblock %}
