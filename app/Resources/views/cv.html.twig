@@ -1,10 +1,66 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }}Index{% endblock %}
-{% block stylesheets %}
-    {{ parent() }}
-
-    <link href="{{ asset('css/test.css') }}" rel="stylesheet">
+{% block title %}{{ info.contact.prenom }} {{ info.contact.nom }}{% endblock %}
+{% block javascripts %}
+	<script type="text/javascript">
+		$(function(){
+			$("section").css("min-height", $(window).height() );
+			console.log($(window).height());
+			var ctx = $('#myChart');
+			/*var options = { responsive: true };
+			console.log($('#myChart').parent().html());
+			var obj = {{ info.competences1 |json_encode|raw}};
+			var competences1 = new Chart(ctx, {
+				type: 'bar',
+				data : obj,
+				options:options
+			});*/
+			Chart.defaults.global.animation.duration = 2000;
+			Chart.defaults.global.animation.easing = 'easeInOutCubic';
+			Chart.defaults.global.tooltips.enabled = false;
+			var myChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels: ["Java", "PHP", "Spring", "Javascript", "HTML/CSS"],
+					datasets: [{
+						label: '# of Votes',
+						data: [12, 19, 3, 5, 2, 3],
+						backgroundColor: [
+							'rgba(255, 99, 132, 0.5)',
+							'rgba(54, 162, 235, 0.5)',
+							'rgba(255, 206, 86, 0.5)',
+							'rgba(75, 192, 192, 0.5)',
+							'rgba(153, 102, 255, 0.5)'
+						],
+						borderColor: [
+							'rgba(255,99,132,1)',
+							'rgba(54, 162, 235, 1)',
+							'rgba(255, 206, 86, 1)',
+							'rgba(75, 192, 192, 1)',
+							'rgba(153, 102, 255, 1)'
+						],
+						borderWidth: 1
+					}]
+				},
+				options: {
+					legend: { display: false },
+					responsive:false,
+					scales: {
+						yAxes: [{
+							ticks: {
+								beginAtZero:true
+							},display : false
+						}],
+						xAxes: [{
+							gridLines : {
+								display : false
+							}
+						}]
+					}
+				}
+			});
+		});		
+	</script>	
 {% endblock %}
 {% block body %}
         <nav>
@@ -76,6 +132,7 @@
 			</div>
 		</section>
 		<section id="competences">
+			<canvas id="myChart" width="400" height="400"></canvas>
 		</section>
 		<section id="interets">
 		</section>
