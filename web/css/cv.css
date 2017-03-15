@@ -1,0 +1,27 @@
+html, body { height: 100%; margin: 0; padding: 0; }
+
+h1{
+	color:red;
+}
+.owl-carousel{
+	width:80%;
+	margin:auto;
+}
+ #photos .owl-nav{
+	position: absolute;
+	top: 45%;
+	width: 100%;
+}
+ #photos .owl-prev{
+	float:left;
+ }
+ #photos .owl-next{
+	float:right;
+ }
+ #photos .owl-prev,  #photos .owl-next{
+	background:none;
+	font-size:30px;
+ }
+ #photos .owl-prev:hover,  #photos .owl-next:hover{
+	color:#ccc;
+ }
