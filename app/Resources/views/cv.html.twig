@@ -3,45 +3,20 @@
 {% block title %}{{ info.contact.prenom }} {{ info.contact.nom }}{% endblock %}
 {% block javascripts %}
 	<script type="text/javascript">
+		//bleu foncé #456990
+		//bleu clair #ccd6e0
+		//rouge #f45b69
 		$(function(){
-			$("section").css("min-height", $(window).height() );
-			console.log($(window).height());
+			//$("section").css("min-height", $(window).height() );
+			//Chart JS
 			var ctx = $('#myChart');
-			/*var options = { responsive: true };
-			console.log($('#myChart').parent().html());
-			var obj = {{ info.competences1 |json_encode|raw}};
-			var competences1 = new Chart(ctx, {
-				type: 'bar',
-				data : obj,
-				options:options
-			});*/
+			var obj = {{ competences | raw}};
 			Chart.defaults.global.animation.duration = 2000;
 			Chart.defaults.global.animation.easing = 'easeInOutCubic';
 			Chart.defaults.global.tooltips.enabled = false;
 			var myChart = new Chart(ctx, {
 				type: 'bar',
-				data: {
-					labels: ["Java", "PHP", "Spring", "Javascript", "HTML/CSS"],
-					datasets: [{
-						label: '# of Votes',
-						data: [12, 19, 3, 5, 2, 3],
-						backgroundColor: [
-							'rgba(255, 99, 132, 0.5)',
-							'rgba(54, 162, 235, 0.5)',
-							'rgba(255, 206, 86, 0.5)',
-							'rgba(75, 192, 192, 0.5)',
-							'rgba(153, 102, 255, 0.5)'
-						],
-						borderColor: [
-							'rgba(255,99,132,1)',
-							'rgba(54, 162, 235, 1)',
-							'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)',
-							'rgba(153, 102, 255, 1)'
-						],
-						borderWidth: 1
-					}]
-				},
+				data: obj,
 				options: {
 					legend: { display: false },
 					responsive:false,
@@ -59,8 +34,44 @@
 					}
 				}
 			});
-		});		
-	</script>	
+			//Carte
+			$(".container").mapael({
+				map : {
+					name : "world_countries"
+				}
+			});
+			//OWL
+			$("#memes").owlCarousel({
+				loop:true,
+				margin:10,
+				dots:true,
+				nav:false,
+				responsive:{
+					0:{
+						items:1
+					},
+					600:{
+						items:3
+					},
+					1000:{
+						items:5
+					}
+				}
+			});
+			$("#photos").owlCarousel({
+				loop:true,
+				margin:10,
+				dots:false,
+				nav:true,
+				items:1,
+				navSpeed:700,
+				navText : [
+					"<",
+					">"
+				  ],
+			});
+		});
+	</script>
 {% endblock %}
 {% block body %}
         <nav>
@@ -81,7 +92,7 @@
 				velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
 				sunt in culpa qui officia deserunt mollit anim id est laborum</p>
 			</article>
-			<img id="portrait" src="./img/marion.png" alt="portrait Marion">
+			<!--<img id="portrait" src="./img/marion.png" alt="portrait Marion">-->
 			<article id="detail">
 				<h1>D&eacute;tails</h1>
 				<h2>{{ info.contact.prenom }} {{ info.contact.nom }}</h2>
@@ -94,7 +105,7 @@
 			</article>
 		</section>
 		<section id="experiences">
-			<img id="fleche" src="./img/fleche" alt="fl&egrave;che sens chronologique">
+			<!--<img id="fleche" src="./img/fleche" alt="fl&egrave;che sens chronologique">-->
 			<div class="container-experiences">
 				<h1>Exp&eacute;riences</h1>
 				{% for experience in info.experiences %}    
@@ -135,8 +146,25 @@
 			<canvas id="myChart" width="400" height="400"></canvas>
 		</section>
 		<section id="interets">
+			<h1>Mes points d'int&eacute;r&ecirc;ts</h1>
+			<div class="container">
+				<div class="map">Alternative content</div>
+			</div>
+			
+			<div id="memes" class="owl-carousel owl-theme">
+			  <div class="item"><img src="{{ asset('img/1.jpg') }}" alt="image"></div>
+			  <div class="item"><img src="{{ asset('img/2.jpg') }}" alt="image"></div>
+			  <div class="item"><img src="{{ asset('img/3.jpg') }}" alt="image"></div>
+			  <div class="item"><img src="{{ asset('img/4.jpg') }}" alt="image"></div>
+			</div>
+			<div id="photos" class="owl-carousel owl-theme">
+			  <div class="item"><img src="{{ asset('img/DSC_0063.png') }}" alt="image"></div>
+			  <div class="item"><img src="{{ asset('img/DSC_0062.png') }}" alt="image"></div>
+			</div>
 		</section>
 		<section id="contact">
+			<h1>Me contacter</h1>
+			
 		</section>
         <footer>
         </footer>

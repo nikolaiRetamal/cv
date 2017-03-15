@@ -13,10 +13,14 @@ class AccueilNiko extends Controller{
     {
 		
 		$content = file_get_contents('./js/data_nikolai.json');
-		$json = json_decode($content, true);
+		$info = json_decode($content, true);
+		$competences = file_get_contents('./js/competences.json');
+		$optionsMaps = file_get_contents('./js/optionsMaps.json');
 		return $this->render('cv.html.twig', array(
-					'info' => $json,
-				));
+			'info' => $info,
+			'competences' => $competences,
+			'optionsMaps' => $optionsMaps
+		));
     }
 }
 ?>
