@@ -7,7 +7,7 @@
 		//bleu clair #ccd6e0
 		//rouge #f45b69
 		$(function(){
-			//$("section").css("min-height", $(window).height() );
+			$("section").css("min-height", $(window).height());
 			//Chart JS
 			var ctx = $('#myChart');
 			var obj = {{ competences | raw}};
@@ -143,6 +143,7 @@
 			</div>
 		</section>
 		<section id="competences">
+			<h1>Comp&eacute;tences</h1>
 			<canvas id="myChart" width="400" height="400"></canvas>
 		</section>
 		<section id="interets">
