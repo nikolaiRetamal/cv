@@ -62,4 +62,23 @@ $(function(){
 			">"
 		  ],
 	});
+	$("nav").on('click', 'a', function(event){
+		event.preventDefault();
+
+		$('html, body').animate({
+			scrollTop: $( $.attr(this, 'href') ).offset().top
+		}, 700, 'swing');
+	});
+	$(document).scroll(function() {
+		var cutoff = $(window).scrollTop() + 30;
+		
+		$('section').each(function(){
+			var elem = $('li[data-ordre=' + $(this).data('ordre') + ']');
+			if($(this).offset().top + $(this).height() > cutoff){
+				$('nav li').removeClass('active');
+				elem.addClass('active');
+				return false; // stops the iteration after the first one on screen
+			}
+		});
+	});
 });

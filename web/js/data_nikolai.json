@@ -1,5 +1,6 @@
 {
-	"titre" : "Ingénieur Backend",
+	"titre" : "Ingénieur Full Stack",
+	"sousTitre" : "Web / Android",
 	"photo" : "./img/niko.jpg",
 	"contact": {
 	"nom" : "Retamal",
@@ -10,7 +11,7 @@
     "ville": "Toulouse",
     "tel" : "06-71-64-86-14",
     "mail" : "nikolai.retamal@yahoo.fr",
-    "age" : "30"
+    "age" : "30 ans"
 	},"experiences": [
 		{
 			"id" : 1,

@@ -10,16 +10,17 @@
 {% block body %}
         <nav>
 			<ul>
-				<li><a href="#quiSuisJe">Qui suis-je</a></li>
-				<li><a href="#experiences">Mes exp&eacute;riences</a></li>
-				<li><a href="#competences">Mes comp&eacute;tences</a></li>
-				<li><a href="#interets">Mes points d'int&eacute;r&ecirc;ts</a></li>
-				<li><a href="#contact">Me contacter</a></li>
+				<li data-ordre="1"><a href="#quiSuisJe">Qui suis-je</a></li>
+				<li data-ordre="2"><a href="#experiences">Mes exp&eacute;riences</a></li>
+				<li data-ordre="3"><a href="#competences">Mes comp&eacute;tences</a></li>
+				<li data-ordre="4"><a href="#interets">Mes points d'int&eacute;r&ecirc;ts</a></li>
+				<li data-ordre="5"><a href="#contact">Me contacter</a></li>
 			</ul>
 		</nav>
-		<section id="quiSuisJe">
+		<section id="quiSuisJe" data-ordre="1">
 			<article id="aPropos">
 				<h1>{{ info.titre }}</h1>
+				<h2>{{ info.sousTitre }}</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
 				ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
 				laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
@@ -38,7 +39,7 @@
 				<span>{{ info.contact.ville }}</span>
 			</article>
 		</section>
-		<section id="experiences">
+		<section id="experiences" data-ordre="2">
 			<!--<img id="fleche" src="./img/fleche" alt="fl&egrave;che sens chronologique">-->
 			<div class="container-experiences">
 				<h1>Exp&eacute;riences</h1>
@@ -76,11 +77,11 @@
 				{% endfor %}
 			</div>
 		</section>
-		<section id="competences">
+		<section id="competences" data-ordre="3">
 			<h1>Comp&eacute;tences</h1>
 			<canvas id="myChart" width="400" height="400"></canvas>
 		</section>
-		<section id="interets">
+		<section id="interets" data-ordre="4">
 			<h1>Mes points d'int&eacute;r&ecirc;ts</h1>
 			<div class="container">
 				<div class="map">Alternative content</div>
@@ -97,9 +98,8 @@
 			  <div class="item"><img src="{{ asset('img/DSC_0062.png') }}" alt="image"></div>
 			</div>
 		</section>
-		<section id="contact">
+		<section id="contact" data-ordre="5">
 			<h1>Me contacter</h1>
-			
 		</section>
         <footer>
         </footer>
