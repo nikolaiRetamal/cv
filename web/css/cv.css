@@ -25,3 +25,16 @@ h1{
  #photos .owl-prev:hover,  #photos .owl-next:hover{
 	color:#ccc;
  }
+nav li{
+	display: inline-block;
+}
+nav ul{
+	position:absolute;
+}
+nav li > a{
+	color:#000;	
+}
+nav li > a:hover{
+	color:#ccc;	
+	text-decoration: none;
+}
