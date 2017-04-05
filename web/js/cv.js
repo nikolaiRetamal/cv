@@ -1,4 +1,9 @@
 $(function(){
+	function setHeightBarreChrono(){
+		var height = $('.container-experiences').height()
+						+ $('.container-formations').height() - 100;
+		$('#barreChrono').css('height', height);
+	}
 	//Section pleine page
 	$("section").css("min-height", $(window).height() - 30 );
 	//Chart JS
@@ -62,13 +67,14 @@ $(function(){
 			">"
 		  ],
 	});
+	//Animation "Smooth" pour naviguer entre les sections
 	$("nav").on('click', 'a', function(event){
 		event.preventDefault();
-
 		$('html, body').animate({
 			scrollTop: $( $.attr(this, 'href') ).offset().top
 		}, 700, 'swing');
 	});
+	//Gestion du changement du menu en fonction de la section courante
 	$(document).scroll(function() {
 		var cutoff = $(window).scrollTop() + 30;
 		
@@ -81,4 +87,14 @@ $(function(){
 			}
 		});
 	});
+	//Voir/Cacher missions
+	$('.description').on('click', '.voirDetail', function() {
+		if($(this).next('.missions').css('display') == 'none'){
+			$(this).find('.libelleDetail').text("Cacher mes missions");
+		}else{
+			$(this).find('.libelleDetail').text("Voir mes missions");
+		}		     
+	   $(this).next('.missions').toggle("hide");
+	});
+	setHeightBarreChrono();
 });

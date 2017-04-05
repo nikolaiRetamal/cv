@@ -18,7 +18,7 @@
 			</ul>
 		</nav>
 		<section id="quiSuisJe" data-ordre="1">
-			<article id="aPropos">
+			<article id="aPropos" class="col-md-offset-1 col-md-3 col-xs-12">
 				<h1>{{ info.titre }}</h1>
 				<h2>{{ info.sousTitre }}</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
@@ -28,7 +28,7 @@
 				sunt in culpa qui officia deserunt mollit anim id est laborum</p>
 			</article>
 			<!--<img id="portrait" src="./img/marion.png" alt="portrait Marion">-->
-			<article id="detail">
+			<article id="detail" class="col-md-offset-4 col-md-3 col-xs-12">
 				<h1>D&eacute;tails</h1>
 				<h2>{{ info.contact.prenom }} {{ info.contact.nom }}</h2>
 				<label>Age</label><br>
@@ -39,23 +39,25 @@
 				<span>{{ info.contact.ville }}</span>
 			</article>
 		</section>
-		<section id="experiences" data-ordre="2">
+		<section id="experiences" data-ordre="2" class="col-md-offset-1 col-md-10 col-xs-12">
 			<!--<img id="fleche" src="./img/fleche" alt="fl&egrave;che sens chronologique">-->
-			<div class="container-experiences">
+			<div id="barreChrono" class="col-md-1 col-xs-1">
+			</div>
+			<div class="container-experiences col-md-11 col-xs-11">
 				<h1>Exp&eacute;riences</h1>
 				{% for experience in info.experiences %}    
-					<div class="entite">
+					<div class="entite col-md-3 col-xs-12">
 						<h2>{{ experience.entite }}</h2>
 						<span class="periode">{{ experience.periode }}<span>
 					</div>
-					<article class="description">
+					<article class="description col-md-9 col-xs-12">
 						<h2>{{ experience.poste }}</h2>
 						<p>{{ experience.description }}</p>
 						<span class="voirDetail">
-							Voir mes missions 
+							<span class="libelleDetail">Voir mes missions</span> 
 							<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 						</span>
-						<ul>
+						<ul class="missions" style="display:none;">
 							{% for mission in experience.missions %}
 								<li>{{ mission | raw }}</li>
 							{% endfor %}
@@ -63,25 +65,25 @@
 					</article>
 				{% endfor %}
 			</div>
-			<div class="container-formations">
+			<div class="container-formations col-md-11 col-xs-11" >
 				<h1>Formations</h1>
 				{% for formation in info.formations %}    
-					<div class="diplome">
+					<div class="diplome col-md-3 col-xs-12">
 						<h2>{{ formation.diplome }}</h2>
 						<span class="periode">{{ formation.periode }}<span>
 					</div>
-					<article class="description">
+					<article class="description col-md-9 col-xs-12">
 						<h2>{{ formation.lieu }}</h2>
 						<p>{{ formation.description }}</p>
 					</article>
 				{% endfor %}
 			</div>
 		</section>
-		<section id="competences" data-ordre="3">
+		<section id="competences" data-ordre="3" class="col-md-offset-1 col-md-10 col-xs-12">
 			<h1>Comp&eacute;tences</h1>
 			<canvas id="myChart" width="400" height="400"></canvas>
 		</section>
-		<section id="interets" data-ordre="4">
+		<section id="interets" data-ordre="4" class="col-md-offset-1 col-md-10 col-xs-12">
 			<h1>Mes points d'int&eacute;r&ecirc;ts</h1>
 			<div class="container">
 				<div class="map">Alternative content</div>
@@ -98,7 +100,7 @@
 			  <div class="item"><img src="{{ asset('img/DSC_0062.png') }}" alt="image"></div>
 			</div>
 		</section>
-		<section id="contact" data-ordre="5">
+		<section id="contact" data-ordre="5" class="col-md-offset-1 col-md-10 col-xs-12">
 			<h1>Me contacter</h1>
 		</section>
         <footer>

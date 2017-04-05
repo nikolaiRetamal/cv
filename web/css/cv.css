@@ -7,7 +7,7 @@ html, body {
 
 
 h1{
-	color:red;
+	color:#349fa7;
 	font-family: 'Raleway', sans-serif;
 }
 section{
@@ -15,6 +15,10 @@ section{
 	width:80%;
 	margin:auto;
 	z-index:2;
+}
+#quiSuisJe{
+	padding-top:25px;
+	width:100%;
 }
 .owl-carousel{
 	width:80%;
@@ -52,7 +56,7 @@ nav li a:visited, nav li a:link, nav li a:focus {
 	outline:none;
 }
 nav li > a:hover{
-	color:#ccc;
+	color:#349fa7;
 }
 a{
 }
@@ -66,22 +70,39 @@ nav{
 	background:#fff;
 	border-bottom: 2px solid #349fa7;
 }
-#aPropos {
-	position:absolute;
-	top:20%;
-	left:5%;
-	width:20%;
-	font-size:15px;
-}
-#detail{
-	position:absolute;
-	top:20%;
-	left:70%;
-	width:15%;
-}
 #detail h2{
 	font-size:20px;
 }
 .active a{
     color:#349fa7;
+}
+#experiences .entite h2, #experiences .diplome h2{
+	font-family: 'Raleway', sans-serif;
+	font-size:25px;
+	font-weight:bold;
+}
+#barreChrono{
+	 border-left: thick solid #ff0000;
+	 height:30px;
+	 margin-top:40px;
+}
+#experiences .description h2{
+	font-family: 'Raleway', sans-serif;
+	font-size:20px;
+	font-weight:bold;
+	margin-top:25px;
+}
+section li{
+	display:block;
+}
+
+section li:before {
+    /*Using a Bootstrap glyphicon as the bullet point*/
+    content: "\e080";
+    font-family: 'Glyphicons Halflings';
+    font-size: 14px;
+    float: left;
+    margin-top: 0px;
+    margin-left: -20px;
+    color: #bbb;
 }
