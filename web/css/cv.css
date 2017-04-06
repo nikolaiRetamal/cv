@@ -81,10 +81,20 @@ nav{
 	font-size:25px;
 	font-weight:bold;
 }
+#conteneurBarreChrono{
+	margin-top:40px;
+	margin-left:-40px;
+}
 #barreChrono{
-	 border-left: thick solid #ff0000;
-	 height:30px;
-	 margin-top:40px;
+	border-right: 3px solid #333;
+	padding:0px;
+	margin-top:5px;
+}
+#chevronBarreChrono{
+	margin-top:-10px;
+	display:block;
+	float:right;
+	margin-right:-6px;
 }
 #experiences .description h2{
 	font-family: 'Raleway', sans-serif;
@@ -105,4 +115,23 @@ section li:before {
     margin-top: 0px;
     margin-left: -20px;
     color: #bbb;
+}
+.container-experiences, .container-formations{
+	padding-left:30px;
+}
+.mapael{
+	width:100%;
+}
+.map .mapTooltip {
+	position: absolute;
+	background-color: #474c4b;
+	moz-opacity: 0.70;
+	opacity: 0.70;
+	filter: alpha(opacity=70);
+	border-radius: 10px;
+	padding: 10px;
+	z-index: 1000;
+	max-width: 200px;
+	display: none;
+	color: #fff;
 }

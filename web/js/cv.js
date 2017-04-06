@@ -1,9 +1,18 @@
+var sectionQuiSuisJe, barreChrono, containerExperiences, containerFormations;
+
+function setHeightBarreChrono(){
+	var height = containerExperiences.height()
+					+ containerFormations.height() - 50;
+	barreChrono.css('height', height);
+}
+function setPaddingAPropos(){
+	sectionQuiSuisJe
+}
 $(function(){
-	function setHeightBarreChrono(){
-		var height = $('.container-experiences').height()
-						+ $('.container-formations').height() - 100;
-		$('#barreChrono').css('height', height);
-	}
+	sectionQuiSuisJe = $("#quiSuisJe");
+	barreChrono = $('#barreChrono');
+	containerExperiences = $('.container-experiences');
+	containerFormations = $('.container-formations');
 	//Section pleine page
 	$("section").css("min-height", $(window).height() - 30 );
 	//Chart JS
@@ -33,8 +42,34 @@ $(function(){
 	});
 	//Carte
 	$(".container").mapael({
-		map : {
-			name : "world_countries"
+		map: {
+			name: "world_countries"
+			, defaultArea: {
+				attrs: {
+					fill: "#ecf6f7"
+					, stroke: "#349fa7"
+				}
+				, attrsHover: {
+					fill: "#ecf6f7"
+				}
+			}
+		},
+		plots: {
+			'cm': {
+				latitude: 53.258888,
+				longitude: -9.032135,
+				attrs: {fill : "#e74c3c", stroke : "#000", "stroke-width" : 1 },
+				tooltip: {content: "Connemara<br>2013"},
+				value: [5000, 20]
+			},
+			'ny': {
+				latitude: 40.717079,
+				longitude: -74.00116,
+				attrs: {fill : "#e74c3c", stroke : "#000", "stroke-width" : 1 },
+				tooltip: {content: "New York<br>2014"},
+				value: [5000, 20]
+			},
+			
 		}
 	});
 	//OWL
@@ -97,4 +132,9 @@ $(function(){
 	   $(this).next('.missions').toggle("hide");
 	});
 	setHeightBarreChrono();
+	setPaddingAPropos();
+	$( window ).resize(function() {
+		setHeightBarreChrono();
+		setPaddingAPropos();
+	});
 });
