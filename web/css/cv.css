@@ -135,3 +135,25 @@ section li:before {
 	display: none;
 	color: #fff;
 }
+/*container-desc-chart ligne*/ 
+.container-chart, canvas{
+	margin:auto;
+}
+.container-desc-chart, .ligne{
+	margin:0;
+	padding:0;
+}
+.container-desc-chart .spacer{
+	height:70px;
+}
+.ligne hr{
+	border-top: dotted 2px #bbb;
+	margin:0;
+	padding:0;
+	margin-top:7px;
+}
+.ligne{
+	height:100px;
+	text-align:center;
+	font-size:14px;
+}

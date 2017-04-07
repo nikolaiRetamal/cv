@@ -16,13 +16,14 @@ $(function(){
 	//Section pleine page
 	$("section").css("min-height", $(window).height() - 30 );
 	//Chart JS
-	var ctx = $('#myChart');
+	var ctx1 = $('#myChart1');
+	var ctx2 = $('#myChart2');
 	Chart.defaults.global.animation.duration = 2000;
 	Chart.defaults.global.animation.easing = 'easeInOutCubic';
 	Chart.defaults.global.tooltips.enabled = false;
-	var myChart = new Chart(ctx, {
+	var myChart1 = new Chart(ctx1, {
 		type: 'bar',
-		data: obj,
+		data: competences1,
 		options: {
 			legend: { display: false },
 			responsive:false,
@@ -40,36 +41,24 @@ $(function(){
 			}
 		}
 	});
-	//Carte
-	$(".container").mapael({
-		map: {
-			name: "world_countries"
-			, defaultArea: {
-				attrs: {
-					fill: "#ecf6f7"
-					, stroke: "#349fa7"
-				}
-				, attrsHover: {
-					fill: "#ecf6f7"
-				}
+	var myChart2 = new Chart(ctx2, {
+		type: 'bar',
+		data: competences2,
+		options: {
+			legend: { display: false },
+			responsive:false,
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					},display : false
+				}],
+				xAxes: [{
+					gridLines : {
+						display : false
+					}
+				}]
 			}
-		},
-		plots: {
-			'cm': {
-				latitude: 53.258888,
-				longitude: -9.032135,
-				attrs: {fill : "#e74c3c", stroke : "#000", "stroke-width" : 1 },
-				tooltip: {content: "Connemara<br>2013"},
-				value: [5000, 20]
-			},
-			'ny': {
-				latitude: 40.717079,
-				longitude: -74.00116,
-				attrs: {fill : "#e74c3c", stroke : "#000", "stroke-width" : 1 },
-				tooltip: {content: "New York<br>2014"},
-				value: [5000, 20]
-			},
-			
 		}
 	});
 	//OWL

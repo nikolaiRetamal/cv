@@ -3,9 +3,11 @@
 {% block title %}{{ info.contact.prenom }} {{ info.contact.nom }}{% endblock %}
 {% block javascripts %}
 <script type="text/javascript">
-	var obj = {{ competences | raw}};
+	var competences1 = {{ competences1 | raw}};
+	var competences2 = {{ competences2 | raw}};
 </script>
 <script type="text/javascript" src="{{ asset('js/cv.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/carte_niko.js') }}"></script>
 {% endblock %}
 {% block body %}
         <nav>
@@ -83,7 +85,60 @@
 		</section>
 		<section id="competences" data-ordre="3" class="col-md-offset-1 col-md-10 col-xs-12">
 			<h1>Comp&eacute;tences</h1>
-			<canvas id="myChart" width="400" height="400"></canvas>
+			
+			<div class="container-chart col-md-4 col-xs-12">
+				<h2>Titre compétences 1</h2>
+				<canvas id="myChart1" width="400" height="400"></canvas>
+			</div>
+			<div class="container-desc-chart col-md-4 hidden-xs">
+				<div class="spacer">
+				</div>
+				<div class="ligne col-md-12 col-xs-12">
+					<hr class="col-md-4 col-xs-4">
+					<span class="col-md-4 col-xs-4">libellé</span>
+					<hr class="col-md-4 col-xs-4">
+				</div>
+				<div class="ligne col-md-12 col-xs-12">
+					<hr class="col-md-4 col-xs-4">
+					<span class="col-md-4 col-xs-4">libellé</span>
+					<hr class="col-md-4 col-xs-4">
+				</div>
+				<div class="ligne col-md-12 col-xs-12">
+					<hr class="col-md-4 col-xs-4">
+					<span class="col-md-4 col-xs-4">libellé</span>
+					<hr class="col-md-4 col-xs-4">
+				</div>
+				<div class="ligne col-md-12 col-xs-12">
+					<hr class="col-md-4 col-xs-4">
+					<span class="col-md-4 col-xs-4">libellé</span>
+					<hr class="col-md-4 col-xs-4">
+				</div>
+			</div>
+			<div class="container-chart col-md-4 col-xs-12">
+				<h2>Titre compétences 2</h2>
+				<canvas id="myChart2" width="400" height="400"></canvas>
+			</div>
+			<div class="container-langues col-md-4 col-xs-12">
+				<h2>Langues</h2>
+				{% for langue in info.langues %}    
+					<span class="libelle">
+						{{ langue.libelle }}
+					</span>
+					<!--étoiles pleines-->
+					{% for i in range(1, langue.etoiles.pleines) %}
+						<i class="fa fa-star" aria-hidden="true"></i>
+					{% endfor %}
+					<!--étoiles mi-pleines-->
+					{% for i in range(1, langue.etoiles.demies) %}
+						<i class="fa fa-star-half-o" aria-hidden="true"></i>
+					{% endfor %}
+					<!--étoiles vides-->
+					{% for i in range(1, langue.etoiles.vides) %}
+						<i class="fa fa-star-o" aria-hidden="true"></i>
+					{% endfor %}
+					<br>
+				{% endfor %}
+			</div>
 		</section>
 		<section id="interets" data-ordre="4" class="col-md-offset-1 col-md-10 col-xs-12">
 			<h1>Mes points d'int&eacute;r&ecirc;ts</h1>

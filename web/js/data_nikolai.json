@@ -55,17 +55,29 @@
 		{
 		    "id" : 1,
 			"libelle" : "Anglais",
-			"note" : 4,
+			"etoiles" : {
+					"pleines" : 4,
+					"demies" : 1,
+					"vides" : 0
+				},
 			"precisions" : "TOEIC (890/990)"
 		},{
 		    "id" : 2,
 			"libelle" : "Espagnol",
-			"note" : 4,
+			"etoiles" : {
+					"pleines" : 4,
+					"demies" : 0,
+					"vides" : 1
+				},
 			"precisions" : "16 mois en Amérique du Sud"
 		},{
 		    "id" : 3,
 			"libelle" : "Italien",
-			"note" : 2,
+			"etoiles" :{
+					"pleines" : 2,
+					"demies" : 0,
+					"vides" : 0
+				},
 			"precisions" : "Notions"
 		}
 	], "it" : [
