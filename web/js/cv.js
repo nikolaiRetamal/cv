@@ -42,23 +42,13 @@ $(function(){
 		}
 	});
 	var myChart2 = new Chart(ctx2, {
-		type: 'bar',
+		type: 'doughnut',
 		data: competences2,
 		options: {
-			legend: { display: false },
+			legend: { 
+				display: true, 
+				position: 'bottom' },
 			responsive:false,
-			scales: {
-				yAxes: [{
-					ticks: {
-						beginAtZero:true
-					},display : false
-				}],
-				xAxes: [{
-					gridLines : {
-						display : false
-					}
-				}]
-			}
 		}
 	});
 	//OWL
