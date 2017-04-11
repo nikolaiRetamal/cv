@@ -1,6 +1,6 @@
 $(function(){
 	//Carte
-	$(".container").mapael({
+	$("#container-map").mapael({
 		map: {
 			name: "world_countries"
 			, defaultArea: {

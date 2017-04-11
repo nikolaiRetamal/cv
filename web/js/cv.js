@@ -1,20 +1,4 @@
-var sectionQuiSuisJe, barreChrono, containerExperiences, containerFormations;
-
-function setHeightBarreChrono(){
-	var height = containerExperiences.height()
-					+ containerFormations.height() - 50;
-	barreChrono.css('height', height);
-}
-function setPaddingAPropos(){
-	sectionQuiSuisJe
-}
 $(function(){
-	sectionQuiSuisJe = $("#quiSuisJe");
-	barreChrono = $('#barreChrono');
-	containerExperiences = $('.container-experiences');
-	containerFormations = $('.container-formations');
-	//Section pleine page
-	$("section").css("min-height", $(window).height() - 30 );
 	//Chart JS
 	var ctx1 = $('#myChart1');
 	var ctx2 = $('#myChart2');
@@ -110,10 +94,22 @@ $(function(){
 		}		     
 	   $(this).next('.missions').toggle("hide");
 	});
-	setHeightBarreChrono();
-	setPaddingAPropos();
-	$( window ).resize(function() {
-		setHeightBarreChrono();
-		setPaddingAPropos();
+	
+	$('#boutons-interets').on('click', '.bouton', function() {
+		var idInteret = $(this).data('interet');
+		var idElemActif = $('.actif').data('interet');
+		if(idInteret != idElemActif){
+			$('.actif').fadeOut(300).removeClass('actif');
+			var blocAffiche = $('.interet[data-interet=' + idInteret + ']');
+			setTimeout(function() {
+				blocAffiche.css('opacity', '0');
+				blocAffiche.show();
+				blocAffiche.animate({
+				  opacity: 1
+				},300);
+				blocAffiche.addClass('actif');
+			}, 300);
+		}
+		
 	});
 });

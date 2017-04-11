@@ -16,7 +16,6 @@
 				<li data-ordre="2"><a href="#experiences">Mes exp&eacute;riences</a></li>
 				<li data-ordre="3"><a href="#competences">Mes comp&eacute;tences</a></li>
 				<li data-ordre="4"><a href="#interets">Mes points d'int&eacute;r&ecirc;ts</a></li>
-				<li data-ordre="5"><a href="#contact">Me contacter</a></li>
 			</ul>
 		</nav>
 		<section id="quiSuisJe" data-ordre="1">
@@ -31,8 +30,7 @@
 			</article>
 			<!--<img id="portrait" src="./img/marion.png" alt="portrait Marion">-->
 			<article id="detail" class="col-md-offset-4 col-md-3 col-xs-12">
-				<h1>D&eacute;tails</h1>
-				<h2>{{ info.contact.prenom }} {{ info.contact.nom }}</h2>
+				<h1>{{ info.contact.prenom }} {{ info.contact.nom }}</h1>
 				<label>Age</label><br>
 				<span>{{ info.contact.age }}</span><br>
 				<label>Mail</label><br>
@@ -41,13 +39,14 @@
 				<span>{{ info.contact.ville }}</span>
 			</article>
 		</section>
-		<section id="experiences" data-ordre="2" class="col-md-offset-1 col-md-10 col-xs-12">
+		<section id="experiences" data-ordre="2">
 			<!--<img id="fleche" src="./img/fleche" alt="fl&egrave;che sens chronologique">-->
-			<div id="conteneurBarreChrono" class="col-md-1 col-xs-1">
+			<div id="containerBarreChrono" class="col-md-1 col-xs-1">
 				<span id="chevronBarreChrono" class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
-				<div id="barreChrono" ></div>
+				<div id="barreChrono"></div>
 			</div>
-			<div class="container-experiences col-md-11 col-xs-11">
+			<div class="container-experiences">
+				<div class="container-pro col-md-11 col-xs-11">
 				<h1>Exp&eacute;riences</h1>
 				{% for experience in info.experiences %}    
 					<div class="entite col-md-3 col-xs-12">
@@ -69,7 +68,7 @@
 					</article>
 				{% endfor %}
 			</div>
-			<div class="container-formations col-md-11 col-xs-11" >
+			<div class="container-edu col-md-11 col-xs-11" >
 				<h1>Formations</h1>
 				{% for formation in info.formations %}    
 					<div class="diplome col-md-3 col-xs-12">
@@ -82,8 +81,10 @@
 					</article>
 				{% endfor %}
 			</div>
+			</div>
+			
 		</section>
-		<section id="competences" data-ordre="3" class="col-md-offset-1 col-md-10 col-xs-12">
+		<section id="competences" data-ordre="3">
 			<h1>Comp&eacute;tences</h1>
 			
 			<div class="container-chart col-md-6 col-xs-12">
@@ -122,26 +123,24 @@
 				{% endfor %}
 			</div>
 		</section>
-		<section id="interets" data-ordre="4" class="col-md-offset-1 col-md-10 col-xs-12">
+		<section id="interets" data-ordre="4">
 			<h1>Mes points d'int&eacute;r&ecirc;ts</h1>
-			<div class="container">
+			<div id="boutons-interets">
+				<span class="bouton" data-interet="1">
+					<i class="fa fa-plane" aria-hidden="true"></i> Voyage
+				</span>
+				<span class="bouton" data-interet="2">
+					<i class="fa fa-camera-retro" aria-hidden="true"></i> Photographie
+				</span>
+			</div>
+			<div id="container-map" class="interet actif" data-interet="1">
 				<div class="map">Alternative content</div>
 			</div>
-			
-			<div id="memes" class="owl-carousel owl-theme">
-			  <div class="item"><img src="{{ asset('img/1.jpg') }}" alt="image"></div>
-			  <div class="item"><img src="{{ asset('img/2.jpg') }}" alt="image"></div>
-			  <div class="item"><img src="{{ asset('img/3.jpg') }}" alt="image"></div>
-			  <div class="item"><img src="{{ asset('img/4.jpg') }}" alt="image"></div>
-			</div>
-			<div id="photos" class="owl-carousel owl-theme">
-			  <div class="item"><img src="{{ asset('img/DSC_0063.png') }}" alt="image"></div>
-			  <div class="item"><img src="{{ asset('img/DSC_0062.png') }}" alt="image"></div>
+			<div id="container-photo" class="interet" style="display:none" data-interet="2"> 
+				<div id="photos" class="owl-carousel owl-theme">
+				<div class="item"><img src="{{ asset('img/DSC_0063.png') }}" alt="image"></div>
+				<div class="item"><img src="{{ asset('img/DSC_0062.png') }}" alt="image"></div>
+				</div>
 			</div>
 		</section>
-		<section id="contact" data-ordre="5" class="col-md-offset-1 col-md-10 col-xs-12">
-			<h1>Me contacter</h1>
-		</section>
-        <footer>
-        </footer>
 {% endblock %}
