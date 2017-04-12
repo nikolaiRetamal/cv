@@ -5,12 +5,14 @@ $(function(){
 	Chart.defaults.global.animation.duration = 2000;
 	Chart.defaults.global.animation.easing = 'easeInOutCubic';
 	Chart.defaults.global.tooltips.enabled = false;
+	Chart.defaults.global.defaultFontSize=16;
 	var myChart1 = new Chart(ctx1, {
 		type: 'bar',
 		data: competences1,
 		options: {
 			legend: { display: false },
-			responsive:false,
+			responsive:true,
+			maintainAspectRatio: true,
 			scales: {
 				yAxes: [{
 					ticks: {
@@ -21,7 +23,7 @@ $(function(){
 					gridLines : {
 						display : false
 					}
-				}]
+				}],scaleLabel: { fontSize: 26 }
 			}
 		}
 	});
@@ -29,31 +31,16 @@ $(function(){
 		type: 'doughnut',
 		data: competences2,
 		options: {
+			responsive:true,
+			maintainAspectRatio: false,
 			legend: { 
 				display: true, 
-				position: 'bottom' },
-			responsive:false,
+				position: 'bottom' }
 		}
 	});
-	//OWL
-	$("#memes").owlCarousel({
-		loop:true,
-		margin:10,
-		dots:true,
-		nav:false,
-		responsive:{
-			0:{
-				items:1
-			},
-			600:{
-				items:3
-			},
-			1000:{
-				items:5
-			}
-		}
-	});
-	$("#photos").owlCarousel({
+	
+	//caroussel photo
+	var owl = $("#photos").owlCarousel({
 		loop:true,
 		margin:10,
 		dots:false,
@@ -65,6 +52,7 @@ $(function(){
 			">"
 		  ],
 	});
+	
 	//Animation "Smooth" pour naviguer entre les sections
 	$("nav").on('click', 'a', function(event){
 		event.preventDefault();
@@ -72,6 +60,7 @@ $(function(){
 			scrollTop: $( $.attr(this, 'href') ).offset().top
 		}, 700, 'swing');
 	});
+	
 	//Gestion du changement du menu en fonction de la section courante
 	$(document).scroll(function() {
 		var cutoff = $(window).scrollTop() + 30;
@@ -85,6 +74,7 @@ $(function(){
 			}
 		});
 	});
+	
 	//Voir/Cacher missions
 	$('.description').on('click', '.voirDetail', function() {
 		if($(this).next('.missions').css('display') == 'none'){
@@ -95,12 +85,15 @@ $(function(){
 	   $(this).next('.missions').toggle("hide");
 	});
 	
+	//Menu boutons points d'intérêt
 	$('#boutons-interets').on('click', '.bouton', function() {
 		var idInteret = $(this).data('interet');
 		var idElemActif = $('.actif').data('interet');
 		if(idInteret != idElemActif){
 			$('.actif').fadeOut(300).removeClass('actif');
 			var blocAffiche = $('.interet[data-interet=' + idInteret + ']');
+			$('.bouton').removeClass('boutonActif');
+			$(this).addClass('boutonActif');
 			setTimeout(function() {
 				blocAffiche.css('opacity', '0');
 				blocAffiche.show();
@@ -111,5 +104,17 @@ $(function(){
 			}, 300);
 		}
 		
+	});
+	
+	//Navigation au clavier images
+	$(document.documentElement).keyup(function (event) {
+		//Ne marche que si carroussel visible
+		if($('.boutonActif').data('interet') == 2){
+			if (event.keyCode == 37) {
+			   owl.trigger('prev.owl.carousel');
+			} else if (event.keyCode == 39) {
+				owl.trigger('next.owl.carousel');
+			}
+		}
 	});
 });
