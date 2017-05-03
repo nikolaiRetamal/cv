@@ -39,19 +39,26 @@ $(function(){
 		}
 	});
 	
-	//caroussel photo
-	var owl = $("#photos").owlCarousel({
-		loop:true,
-		margin:10,
-		dots:false,
-		nav:true,
-		items:1,
-		navSpeed:700,
-		navText : [
-			"<",
-			">"
-		  ],
+	//Slider central
+	$('.slider-for').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: true,
+		asNavFor: '.slider-nav'
 	});
+	
+	//Slider navigation
+	$('.slider-nav').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		asNavFor: '.slider-for',
+		arrows: false,
+		focusOnSelect: true,
+		vertical: true,
+		verticalSwiping: true
+	});
+	
 	
 	//Animation "Smooth" pour naviguer entre les sections
 	$("nav").on('click', 'a', function(event){

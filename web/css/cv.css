@@ -178,6 +178,19 @@ section{
 	border-bottom:2px solid #349fa7;
 	color:#349fa7;
 }
+.container-slider-for{
+	width:80%;
+}
+.container-slider-nav{
+	width:20%;
+}
+.container-slider-nav img{
+	height:100px;
+}
+.slider-cv{
+	float:left;
+}
+.slick-slide:focus { outline: none; }
 @media(max-width:767px){
 	section{
 		width:97vw;
